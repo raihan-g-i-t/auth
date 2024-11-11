@@ -70,7 +70,8 @@
 
   <div class="login-form">
     <h2>Login</h2>
-    <form action="/login" method="POST">
+    <form action="{{route('login.match')}}" method="POST">
+        @csrf
       <div class="form-group">
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>

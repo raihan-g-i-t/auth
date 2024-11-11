@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class userController extends Controller
 {
@@ -24,7 +26,7 @@ class userController extends Controller
         
         $user = new user();
 
-        $request ->validate([
+        $data = $request ->validate([
             "email"=> "required | email",
         ]);
 
@@ -34,6 +36,40 @@ class userController extends Controller
         $user->password = bcrypt($request["password"]);
         $user->save();
 
-        return redirect("/")->with("success","Registartion Successful");
+        // $message = "SUCCESS";
+        // $data = compact($message);
+
+        return redirect()->route('index');
+    }
+
+    public function dashboard(){
+        if(Auth::check()){
+            return view('dashboard');
+        }else{
+            return back();
+        }
+    }
+
+    public function login_match(Request $request){
+        
+        $credentials = $request->validate([
+            'email'=> 'required',
+            'password'=> 'required',
+        ]);
+
+        if(Auth::attempt($credentials)){
+            return redirect()->route('dashboard');
+
+        }
+        else{
+            return back();
+        }
+
+    }
+
+    public function logout(){
+        Auth::logout();
+
+        return redirect()->route('index');
     }
 }

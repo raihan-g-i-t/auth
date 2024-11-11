@@ -20,4 +20,7 @@ Route::get('/registration', [userController::class,'registration'])->name('regis
 Route::post('/registration', [userController::class,'registration_save'])->name('registration.save');
 
 Route::get('/login', [userController::class,'login'])->name('login');
+Route::post('/login', [userController::class,'login_match'])->name('login.match');
+Route::get('/dashboard', [userController::class,'dashboard'])->name('dashboard');
+Route::get('/logout', [userController::class,'logout'])->name('logout');
 

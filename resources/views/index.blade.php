@@ -59,8 +59,10 @@
   </style>
 </head>
 <body>
-
+    
+    <!-- <label>{{$data ?? ""}}</label> -->
   <div class="container">
+
     <h1>Welcome</h1>
     <a href="{{route('login')}}" class="btn login">Login</a>
     <a href="{{route('registration')}}" class="btn register">Register</a>
