@@ -43,11 +43,7 @@ class userController extends Controller
     }
 
     public function dashboard(){
-        if(Auth::check()){
-            return view('dashboard');
-        }else{
-            return back();
-        }
+        return view('dashboard');
     }
 
     public function login_match(Request $request){
