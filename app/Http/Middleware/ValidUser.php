@@ -14,14 +14,15 @@ class ValidUser
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next, string $data): Response
     {
 
-        if(Auth::check()){
+        if(Auth::user()->role == $data) {
             return $next($request);
+        }elseif(Auth::user()->role == "1") {
+            return redirect()->route('user_dash');
         }else{
             return redirect()->route('login');
         }
-        
     }
 }

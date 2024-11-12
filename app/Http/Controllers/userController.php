@@ -55,9 +55,7 @@ class userController extends Controller
 
         if(Auth::attempt($credentials)){
             return redirect()->route('dashboard');
-
-        }
-        else{
+        }else{
             return back();
         }
 
@@ -67,5 +65,15 @@ class userController extends Controller
         Auth::logout();
 
         return redirect()->route('index');
+    }
+
+    public function user_dash(){
+
+        if(Auth::check()){
+            return view('user_dash');
+        }else{
+            return view('login');
+        }
+        
     }
 }

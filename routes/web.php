@@ -29,7 +29,10 @@ Route::post('/login', [userController::class,'login_match'])->name('login.match'
 //             ->middleware(['IsUserLoggedIn',]);
 Route::get('/logout', [userController::class,'logout'])->name('logout');
 
-Route::middleware(['IsUserLoggedIn',])->group(function(){
+Route::middleware(['auth', 'IsUserLoggedIn:0'])->group(function(){
     Route::get('/dashboard', [userController::class,'dashboard'])->name('dashboard');
+    
 });
+
+Route::get('/user_dash', [userController::class,'user_dash'])->name('user_dash');
 
