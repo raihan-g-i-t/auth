@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use DB;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -76,4 +77,29 @@ class userController extends Controller
         }
         
     }
+
+    public function show_student(){
+        //$user = DB::table('students')->get();
+        //$user = DB::table('students')->where('name', 'like', 'R%')->get();
+        // $user = DB::table('students')->orderBy('email', 'desc')->get();
+        $user = DB::table('students')->latest()->first();
+
+            //dd($user);
+        return view('display_student',['user'=> $user]);
+    }
+
+    public function single_student(string $id){
+
+        $user = DB::table('students')->where('id', $id)->get();
+
+        return view('display_student',['user'=> $user]);
+    }
+
+    public function single_student_name(string $id){
+
+        $user = DB::table('students')->where('id', $id)->select('id', 'name', 'email')->get();
+
+        return view('display_student',['user'=> $user]);
+    }
+
 }

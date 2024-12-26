@@ -36,3 +36,7 @@ Route::middleware(['auth', 'IsUserLoggedIn:0'])->group(function(){
 
 Route::get('/user_dash', [userController::class,'user_dash'])->name('user_dash');
 
+Route::get('/students', [userController::class, 'show_student'])->name('show.student');
+Route::get('/single_student/{id}',[userController::class, 'single_student'])->name('single.student');
+Route::get('/single_student_name/{id}',[userController::class, 'single_student_name'])->name('single.student.name');
+
