@@ -55,7 +55,7 @@ class userController extends Controller
         ]);
 
         if(Auth::attempt($credentials)){
-            return redirect()->route('dashboard');
+            return redirect()->route('user.overview');
         }else{
             return back();
         }
@@ -100,6 +100,10 @@ class userController extends Controller
         $user = DB::table('students')->where('id', $id)->select('id', 'name', 'email')->get();
 
         return view('display_student',['user'=> $user]);
+    }
+
+    public function user_overview(){
+        return view('user.overview');
     }
 
 }
