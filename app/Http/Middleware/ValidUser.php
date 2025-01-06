@@ -20,7 +20,7 @@ class ValidUser
         if(Auth::user()->role == $data) {
             return $next($request);
         }elseif(Auth::user()->role == "1") {
-            return redirect()->route('user_dash');
+            return redirect()->route('user.overview');
         }else{
             return redirect()->route('login');
         }

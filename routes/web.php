@@ -40,4 +40,7 @@ Route::get('/students', [userController::class, 'show_student'])->name('show.stu
 Route::get('/single_student/{id}',[userController::class, 'single_student'])->name('single.student');
 Route::get('/single_student_name/{id}',[userController::class, 'single_student_name'])->name('single.student.name');
 Route::get('/dashboard/user_overview',[userController::class, 'user_overview'])->name('user.overview');
-
+Route::post('/students/add',[userController::class,'add_student'])->name('add.student');
+Route::get('/students/add',[userController::class,'add_student_view'])->name('add.student.view');
+Route::get('/students/delete/{id}',[userController::class,'delete_student'])->name('delete.student');
+Route::get('/students/update/{id}',[userController::class,'update_student'])->name('update.student');

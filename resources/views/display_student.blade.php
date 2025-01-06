@@ -7,6 +7,10 @@
 </head>
 <body>
 
+<div style="padding:30px">
+    <a href="{{route('add.student.view')}}"><button style="padding:10px">ADD NEW USER</button></a>
+</div>
+
 <table>
     <tr>
         @foreach ($user as $u1)
@@ -32,6 +36,8 @@
         <td>{{$u->phone_number ?? ""}}</td>
         <td><a href="{{route('single.student', $u->id ?? "")}}"><button>Show Details</button></a></td>
         <td><a href="{{route('single.student.name', $u->id ?? "")}}"><button>NAME & EMAIL</button></a></td>
+        <td><a href="{{route('delete.student', $u->id ?? "")}}"><button>DELETE</button></a></td>
+        <td><a href="{{route('update.student', $u->id ?? "")}}"><button>UPDATE</button></a></td>
     </tr>
     @endforeach
 </table>
