@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        nav .w-5{
+            display: none;
+        }
+
+    </style>
 </head>
 <body>
 
@@ -41,6 +47,12 @@
     </tr>
     @endforeach
 </table>
+
+<div style="margin: 10px;">
+    @if ($user instanceof \Illuminate\Pagination\AbstractPaginator)
+        {{ $user->links() }}
+    @endif
+</div>
     
 </body>
 </html>

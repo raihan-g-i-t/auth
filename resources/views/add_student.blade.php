@@ -7,19 +7,19 @@
 </head>
 <body>
     <div style="margin:50px">
-        <form method="post" action="{{route('add.student')}}">
+        <form method="post" action="{{route($url, $data->id ?? "")}}">
             @csrf
             <label style="padding:10px">Enter name</label>
             <input style="margin:20px" name="name" type="text" placeholder="Enter Name" value="{{$data->name ?? ""}}"><br>
 
             <label style="margin:20px">Enter Email</label>
-            <input style="margin:20px" name="email" type="email" placeholder="Enter Email"><br>
+            <input style="margin:20px" name="email" type="email" placeholder="Enter Email" value="{{$data->email ?? ""}}"><br>
 
             <label style="margin:20px">Enter adrress</label>
-            <input style="margin:20px" name="address" type="text" placeholder="Enter address"><br>
+            <input style="margin:20px" name="address" type="text" placeholder="Enter address" value="{{$data->address ?? ""}}"><br>
 
             <label style="margin:20px">Enter Phone number</label>
-            <input style="margin:20px" name="phone" type="numer" placeholder="Enter phone number"><br>
+            <input style="margin:20px" name="phone" type="numer" placeholder="Enter phone number" value="{{$data->phone_number ?? ""}}"><br>
 
             <button style="margin:20px" type="submit">Submit</button>
 

@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
-use DB;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -30,8 +28,7 @@ class userController extends Controller
         $data = $request ->validate([
             "email"=> "required | email",
         ]);
-
-
+        
         $user->name = $request["name"];
         $user->email = $request["email"];
         $user->password = bcrypt($request["password"]);
@@ -60,7 +57,6 @@ class userController extends Controller
         }else{
             return back();
         }
-
     }
 
     public function logout(){
@@ -79,62 +75,7 @@ class userController extends Controller
         
     }
 
-    public function show_student(){
-        $user = DB::table('students')->get();
-        //$user = DB::table('students')->where('name', 'like', 'R%')->get();
-        // $user = DB::table('students')->orderBy('email', 'desc')->get();
-        //$user = DB::table('students')->latest()->first();
-
-            //dd($user);
-        return view('display_student',['user'=> $user]);
-    }
-
-    public function single_student(string $id){
-
-        $user = DB::table('students')->where('id', $id)->get();
-
-        return view('display_student',['user'=> $user]);
-    }
-
-    public function single_student_name(string $id){
-
-        $user = DB::table('students')->where('id', $id)->select('id', 'name', 'email')->get();
-
-        return view('display_student',['user'=> $user]);
-    }
-
-    public function add_student(Request $request){
-        DB::table('students')->insert([
-            'name' => $request->name,
-            'email' => $request->email,
-            'address' => $request->address,
-            'phone_number' => $request->phone,
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        $user = DB::table('students')->get();
-        return view('display_student',['user'=> $user]);
-    }
-
-    public function add_student_view(){
-        return view('add_student');
-    }
-
-    public function delete_student($id){
-        DB::table('students')->where('id',$id)->delete();
-
-        $user = DB::table('students')->get();
-        return view('display_student',['user'=> $user]);
-    }
-
-    public function update_student($id){
-        $data = DB::table('students')->where('id', $id)->get();
-        $value = compact('data');
-        return view('add_student')->with($value);
-    }
-
     public function user_overview(){
         return view('user.overview');
     }
-
 }
