@@ -19,7 +19,7 @@
 
 <table>
     <tr>
-        @foreach ($user as $u1)
+        <!-- @foreach ($user as $u1)
             <th>ID</td>
             <th>Name</td>
             <th>Email</td>
@@ -31,7 +31,18 @@
             @endif
             <th>Action</th>
             @break
-        @endforeach
+        @endforeach -->
+
+        <th>ID</td>
+        <th>Name</td>
+        <th>Email</td>
+        @if (isset($u1->address))
+            <th>Address</td>
+        @endif
+        @if (isset($u1->phone_number))
+            <th>Phone Number</th>
+        @endif
+
     </tr>
     @foreach ($user as $u)
     <tr>
