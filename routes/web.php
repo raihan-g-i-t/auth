@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\cityController;
 use App\Http\Controllers\studentController;
 use App\Http\Controllers\userController;
 use App\Http\Middleware\ValidUser;
@@ -45,3 +46,5 @@ Route::get('/students/add',[studentController::class,'add_student_view'])->name(
 Route::get('/students/delete/{id}',[studentController::class,'delete_student'])->name('delete.student');
 Route::get('/students/update/{id}',[studentController::class,'update_student'])->name('update.student');
 Route::post('/students/update/{id}',[studentController::class,'update_store'])->name('update.store');
+
+Route::get('/cityshow', [cityController::class, 'show']);
