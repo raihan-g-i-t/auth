@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\citie;
+use App\Models\people;
 use App\Models\student;
 use Illuminate\Database\Seeder;
 
@@ -21,5 +23,7 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         student::factory()->count(10)->create();
+        people::factory()->count(10)->create();
+        citie::factory()->count(10)->create();
     }
 }
