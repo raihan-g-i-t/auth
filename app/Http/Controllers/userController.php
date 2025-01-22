@@ -106,4 +106,15 @@ class userController extends Controller
         return view('user.overview');
     }
 
+    public function addstudent(){
+
+        DB::table('students')->insert([
+            'name' => "Raihan",
+            'age' => 22,
+            'user_id' => 2,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+    }
+
 }

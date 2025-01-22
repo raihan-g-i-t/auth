@@ -31,7 +31,6 @@ Route::get('/logout', [userController::class,'logout'])->name('logout');
 
 Route::middleware(['auth', 'IsUserLoggedIn:0'])->group(function(){
     Route::get('/dashboard', [userController::class,'dashboard'])->name('dashboard');
-    
 });
 
 Route::get('/user_dash', [userController::class,'user_dash'])->name('user_dash');
@@ -40,4 +39,4 @@ Route::get('/students', [userController::class, 'show_student'])->name('show.stu
 Route::get('/single_student/{id}',[userController::class, 'single_student'])->name('single.student');
 Route::get('/single_student_name/{id}',[userController::class, 'single_student_name'])->name('single.student.name');
 Route::get('/dashboard/user_overview',[userController::class, 'user_overview'])->name('user.overview');
-
+Route::get('/addstudent', [userController::class, 'addstudent'])->name('add.student');
