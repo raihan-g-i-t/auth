@@ -55,3 +55,8 @@ Route::post('/students/update/{id}',[studentController::class,'update_store'])->
 Route::get('/cityshow', [cityController::class, 'show']);
 
 Route::get('/testmodel',[TestmodelController::class, 'index']);
+
+// Route::get('/form',[userController::class, 'form']);
+Route::view('/form', 'form');
+// Route::post('/form',[userController::class, 'form_submit'])->name('form.submit');
+ Route::post('/form',[userController::class, 'form_submit2'])->name('form.submit');

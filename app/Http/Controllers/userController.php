@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FormaRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -77,5 +78,27 @@ class userController extends Controller
 
     public function user_overview(){
         return view('user.overview');
+    }
+
+    // public function form(){
+    //     return view('form');
+    // }
+
+    public function form_submit(Request $request){
+        $request -> validate([
+            'name' => 'required',
+            'email' => 'required | email'
+        ],[
+
+            'name.required' => 'reuireeeeeeeeeeeeeeeeed'
+        ]);
+
+        return $request->all();
+
+    }
+    public function form_submit2(FormaRequest $req){
+
+        return $req->all();
+
     }
 }
