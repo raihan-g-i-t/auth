@@ -92,9 +92,7 @@ class userController extends Controller
 
             'name.required' => 'reuireeeeeeeeeeeeeeeeed'
         ]);
-
         return $request->all();
-
     }
     public function form_submit2(FormaRequest $req){
 

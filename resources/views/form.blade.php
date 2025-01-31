@@ -85,7 +85,7 @@
         <form action="{{route('form.submit')}}" method="post">
         @csrf
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+            <input type="text" id="name" name="name" required placeholder="Enter Name">
             <span>
                 @error('name')
                     {{$message}}
@@ -93,7 +93,7 @@
             </span>
 
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" required placeholder="Enter Email">
             <span>
                 @error('email')
                     {{$message}}
@@ -101,7 +101,7 @@
             </span>
 
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" name="password" required placeholder="Enter Password">
 
             <input type="submit" value="Register">
         </form>

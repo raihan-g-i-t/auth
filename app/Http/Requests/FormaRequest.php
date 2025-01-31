@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Rules\UpperCase;
 
 class FormaRequest extends FormRequest
 {
@@ -22,7 +23,7 @@ class FormaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
+            'name' => ['required', new UpperCase],
             'email' => 'required | email'
         ];
     }
@@ -31,5 +32,11 @@ class FormaRequest extends FormRequest
         return [
             'name.required' => 'reuireeeeeeeeeeeeeeeeed'
         ];
+    }
+
+    protected function prepareForValidation():void{
+        $this->merge([
+            'name' => strtoupper($this->name)
+        ]);
     }
 }
