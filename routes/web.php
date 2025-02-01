@@ -3,6 +3,7 @@
 use App\Http\Controllers\cityController;
 use App\Http\Controllers\studentController;
 use App\Http\Controllers\TestmodelController;
+use App\Http\Controllers\User2Controller;
 use App\Http\Controllers\userController;
 use App\Http\Middleware\ValidUser;
 use Illuminate\Support\Facades\Route;
@@ -59,4 +60,6 @@ Route::get('/testmodel',[TestmodelController::class, 'index']);
 // Route::get('/form',[userController::class, 'form']);
 Route::view('/form', 'form');
 // Route::post('/form',[userController::class, 'form_submit'])->name('form.submit');
- Route::post('/form',[userController::class, 'form_submit2'])->name('form.submit');
+Route::post('/form',[userController::class, 'form_submit2'])->name('form.submit');
+
+Route::get('/users',[User2Controller::class,'index']);

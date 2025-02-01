@@ -7,6 +7,7 @@ use App\Models\citie;
 use App\Models\people;
 use App\Models\student;
 use Illuminate\Database\Seeder;
+use App\Models\User2;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,8 +23,13 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
+        // $this->call([
+        //     Users2Seeder::class
+        // ]);
+
         student::factory()->count(10)->create();
-        people::factory()->count(10)->create();
-        citie::factory()->count(10)->create();
+        User2::factory()->count(5)->create();
+        //people::factory()->count(10)->create();
+        //citie::factory()->count(10)->create();
     }
 }
