@@ -63,3 +63,11 @@ Route::view('/form', 'form');
 Route::post('/form',[userController::class, 'form_submit2'])->name('form.submit');
 
 Route::get('/users',[User2Controller::class,'index']);
+
+Route::get('/uedit/{id}',[User2Controller::class, 'uedit'])->name('user.edit');
+Route::post('/uedit/{id}',[User2Controller::class, 'ustore'])->name('user.store');
+
+Route::view('/uadd','userAdd')->name('user.add');
+Route::post('/uadd',[User2Controller::class, 'uadd'])->name('user.save');
+
+Route::get('/udelete/{id}',[User2Controller::class, 'udelete'])->name('user.delete');
