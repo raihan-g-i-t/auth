@@ -23,12 +23,12 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        // $this->call([
-        //     Users2Seeder::class
-        // ]);
+        $this->call([
+            Users2Seeder::class
+        ]);
 
-        student::factory()->count(10)->create();
-        User2::factory()->count(5)->create();
+        //student::factory()->count(10)->create();
+        //User2::factory()->count(5)->create();
         //people::factory()->count(10)->create();
         //citie::factory()->count(10)->create();
     }

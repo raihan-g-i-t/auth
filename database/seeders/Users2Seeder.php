@@ -14,9 +14,16 @@ class Users2Seeder extends Seeder
      */
     public function run(): void
     {
-        User2::create([
-            'name' => 'Raihan',
-            'email' => 'raihan@gamil.com'
+        User2::updateOrCreate([
+            'name' => 'Raihan2',
+            'email' => 'raihan2@gamil.com'
         ]);
+
+        User2::upsert([
+            'name' => 'Raihan5',
+            'email' => 'raihan5@email.com'
+        ],
+        ['email'],
+    ['email']);
     }
 }

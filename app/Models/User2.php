@@ -13,4 +13,12 @@ class User2 extends Model
         'name',
         'email'
     ];
+
+    protected $attributes=[
+        'name' => 'raihan'
+    ];
+
+    protected $table = 'user2s';
+    protected $primaryKey = 'id';
+    public $timestamps = false;
 }
